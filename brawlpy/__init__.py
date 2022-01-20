@@ -1,3 +1,5 @@
+from .API import API
+
 """
 Brawl Stars API Wrapper
 ~~~~~~~~~~~~~~~~~~~~~~~~~
