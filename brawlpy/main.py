@@ -11,4 +11,6 @@ class Client:
         self.loop = asyncio.get_event_loop()
         self.api = API()
 
-        self.session = aiohttp.ClientSession(loop=self.loop)
+        self.session = aiohttp.ClientSession(loop=self.loop,headers={
+            'Authorization': 'Bearer {}'.format(self.TOKEN)
+        })
