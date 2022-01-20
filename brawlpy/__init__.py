@@ -1,5 +1,3 @@
-from .API import API
-
 """
 Brawl Stars API Wrapper
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -7,6 +5,8 @@ A basic wrapper for the Brawl Stars API.
 :copyright: (c) 2022-Present PyStarr
 :license: MIT, see LICENSE for more details.
 """
+
+from .API import API
 
 __title__ = 'brawlpy'
 __author__ = 'PyStarr'
