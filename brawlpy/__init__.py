@@ -11,3 +11,6 @@ __author__ = 'BrawlPy Org'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2022-Present BrawlPy Org'
 __version__ = '0.0.1'
+
+def test():
+    pass
