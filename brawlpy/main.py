@@ -97,3 +97,10 @@ class Client:
         rankings = await self.request(self.api.RANKINGS.format(countryCode=countryCode) + "/clubs")
 
         return rankings
+
+    async def get_club_members(self, clubTag):
+        """Get members of a club"""
+
+        club = await self.request(self.api.CLUB.format(tag=clubTag) + '/members')
+
+        return club
