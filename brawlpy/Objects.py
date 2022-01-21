@@ -54,3 +54,19 @@ class ClubRanking:
 
     def __str__(self):
         return "{0.rank}. {0.name} ({0.tag})".format(self)
+
+class PlayerRanking:
+    def __init__(self,name,tag,nameColor,icon_id,trophies,rank,clubName):
+        self.name = name
+        self.tag = tag
+        self.nameColor = nameColor
+        self.icon_id = icon_id
+        self.trophies = trophies
+        self.rank = rank
+        self.clubName = clubName
+
+    def __repr__(self):
+        return "<Player name='{0.name}' tag='{0.tag}' rank={0.rank}>".format(self)
+
+    def __str__(self):
+        return "{0.rank}. {0.name} ({0.tag})".format(self)
