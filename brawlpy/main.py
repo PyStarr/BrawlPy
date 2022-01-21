@@ -98,7 +98,21 @@ class Client:
         
         brawlers = await self.request(self.api.BRAWLERS)
 
-        return brawlers
+        brss = brawlers['items']
+        gadgets = []
+        srs = []
+        
+        for each in brss['gadgets']:
+            gr = Gadget(each['name'],each['id'])
+            gadgets.append(gr)
+        
+        for each in brss['starPowers']:
+            sr = StarPower(each['name'],each['id'])
+            srs.append(sr)
+
+        Brs = Brawler(brawlers['name'],brawlers['id'],srs,gadgets)
+
+        return Brs
 
     async def events(self):
         """Get the list of all the events currently in rotation"""
