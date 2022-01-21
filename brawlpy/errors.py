@@ -56,3 +56,15 @@ class ServerError(Errors):
         self.url = url
         self.message = 'The API is down. Please be patient and try again later.'
         super().__init__(self.code, self.message)
+
+class BrawlerNotFound(Errors):
+    """Raised when no brawler found with the give Name or ID"""
+
+    def __init__(self,code,name = None,id = None):
+        self.code = code
+        if name:
+            self.message = 'No Brawler named {}'.format(name)
+        if id:
+            self.message = 'No Brawler with the id {}'.format(id)
+
+        super().__init__(self.code, self.message)

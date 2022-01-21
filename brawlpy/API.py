@@ -1,13 +1,14 @@
 from .errors import *
 
 class API:
-    def __init__(self, base_url = 'https://api.brawlstars.com/v{}', version=1) -> None:
+    def __init__(self,version=1) -> None:
         
-        self.BASE = base_url.format(version)
-        self.PLAYER = self.BASE + "/players"
-        self.CLUB = self.BASE + "/clubs"
-        self.RANKINGS = self.BASE + "/rankings"
+        self.BASE = 'https://api.brawlstars.com/v{}'.format(version)
+        self.PLAYER = self.BASE + "/players/{playerTag}"
+        self.CLUB = self.BASE + "/clubs/{clubTag}"
+        self.RANKINGS = self.BASE + "/rankings/{countryCode}"
         self.BRAWLERS = self.BASE + "/brawlers"
+        self.EVENTS = self.BASE + "/events/rotation"
 
 def checkTag(tag : str):
     tag = tag.strip("#").upper()
