@@ -7,6 +7,7 @@ A basic wrapper for the Brawl Stars API.
 """
 
 from .API import API
+from .main import Client
 
 __title__ = 'brawlpy'
 __author__ = 'PyStarr'
