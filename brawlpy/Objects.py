@@ -131,11 +131,12 @@ class Brawler:
         return "{0.name} ({0.id})".format(self)
 
 class PlayerBrawler:
-    def __init__(self,name,id,power,rank,highestTrophies,gadgets,gears,starPowers):
+    def __init__(self,name,id,power,rank,trophies,highestTrophies,gadgets,gears,starPowers):
         self.name = name
         self.id = id
         self.power = power
         self.rank = rank
+        self.trophies = trophies
         self.highestTrophies = highestTrophies
         self.gadgets = gadgets
         self.gears = gears

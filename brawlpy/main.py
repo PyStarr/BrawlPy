@@ -71,7 +71,7 @@ class Client:
                 gear = Gear(i['name'],i['id'],i['level'])
                 gears.append(gear)
 
-            br = PlayerBrawler(each['name'],each['id'],each['power'],each['rank'],each['highestTrophies'],grs,gears,srs)
+            br = PlayerBrawler(each['name'],each['id'],each['power'],each['rank'],each['trophies'],each['highestTrophies'],grs,gears,srs)
             brrs.append(br)
 
         Pl = Player(player['name'],player['tag'],player['nameColor'],player['icon']['id'],player['trophies'],player['expLevel'],player['expPoints'],cl,player['highestTrophies'],player['soloVictories'],player['duoVictories'],player['3vs3Victories'],player['bestRoboRumbleTime'],player['bestTimeAsBigBrawler'],brrs)
