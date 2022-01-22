@@ -16,7 +16,7 @@ class Forbidden(Errors):
         self.message = message
         super().__init__(self.code, self.message)
 
-class NotFoundError(Errors):
+class TagNotFoundError(Errors):
     """Raised when a invalid player or club tag is passed"""
 
     def __init__(self, code, **kwargs):
@@ -58,13 +58,21 @@ class ServerError(Errors):
         super().__init__(self.code, self.message)
 
 class BrawlerNotFound(Errors):
-    """Raised when no brawler found with the give Name or ID"""
+    """Raised when Invalid brawlerID has been passed"""
 
-    def __init__(self,code,name = None,id = None):
+    def __init__(self,code,id = None):
         self.code = code
-        if name:
-            self.message = 'No Brawler named {}'.format(name)
         if id:
-            self.message = 'No Brawler with the id {}'.format(id)
+            self.message = 'Invalid ID passed! {}'.format(id)
+
+        super().__init__(self.code, self.message)
+
+class CountryNotFound(Errors):
+    """Raised when Invalid countryCode has been passed"""
+
+    def __init__(self,code,countryCode = None):
+        self.code = code
+        if id:
+            self.message = 'Invalid countryCode passed! {}'.format(countryCode)
 
         super().__init__(self.code, self.message)
