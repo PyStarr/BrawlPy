@@ -82,6 +82,7 @@ class ClubMember:
     icon_id - The ID of the player's icon
     role - The role of the member (president,vicePresident,senior,member)
     nameColor - The color of their name
+    trophies - The total trophies of the member
     """
 
     def __init__(self,name,icon_id,tag,role,nameColor,trophies):
@@ -90,6 +91,7 @@ class ClubMember:
         self.tag = tag
         self.role = role
         self.nameColor = nameColor
+        self.trophies = trophies
     
     def __repr__(self):
         return "<ClubMember name='{0.name}' tag='{0.tag}' role='{0.role}'>".format(self)
@@ -264,7 +266,7 @@ class PlayerBrawler:
         return "<Brawler name='{0.name}' rank={0.rank} trophies={0.trophies}>".format(self)
 
     def __str__(self):
-        return "{0.name} ({0.player})".format(self)
+        return "{0.name} ({0.id})".format(self)
 
 
 class Gadget:
