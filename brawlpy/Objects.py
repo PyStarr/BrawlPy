@@ -142,7 +142,7 @@ class PlayerBrawler:
         self.starPowers = starPowers
     
     def __repr__(self):
-        return "<Brawler name='{0.name}' playerName='{0.player.name}' trophies={0.trophies}>".format(self)
+        return "<Brawler name='{0.name}' rank={0.rank} trophies={0.trophies}>".format(self)
 
     def __str__(self):
         return "{0.name} ({0.player})".format(self)
