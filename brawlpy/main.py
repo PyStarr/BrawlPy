@@ -1,9 +1,8 @@
-import imp
 from xml.dom import NotFoundErr
 
 from discord import NotFound
 from itsdangerous import exc
-from .API import API, checkTag
+from .API import API
 from .errors import *
 from .utils import *
 
@@ -77,7 +76,7 @@ class Client:
             return Pl
 
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, player['message'])
         elif status == 404:
             raise TagNotFoundError(status)
         elif status == 429:
@@ -97,7 +96,7 @@ class Client:
         if 300 > status >= 200:
             cc_members = []
             for each in club['members']:
-                m = ClubMember(each['name'],each['icon']['id'],each['tag'],each['role'],each['nameColor'])
+                m = ClubMember(each['name'],each['icon']['id'],each['tag'],each['role'],each['nameColor'],each['trophies'])
                 cc_members.append(m)
             cl = Club(club['tag'],club['name'],club['description'],club['type'],club['badgeId'],club['requiredTrophies'],club['trophies'],cc_members)
 
@@ -120,7 +119,7 @@ class Client:
         url = self.api.BRAWLERS
         brawlers, status = await self.request(url)
         if 300 > status >= 200:
-            brss = brawlers[0]['items']
+            brss = brawlers['items']
             brs = []
             for b in brss:
                 gadgets = []
@@ -138,7 +137,7 @@ class Client:
 
             return brs
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, brawlers['message'])
         elif status == 404:
             raise BrawlerNotFound(status)
         elif status == 429:
@@ -161,7 +160,7 @@ class Client:
             return Ev
         
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, events['message'])
         elif status == 404:
             raise NotFoundErr(status, "Not Found!")
         elif status == 429:
@@ -171,11 +170,14 @@ class Client:
         elif status == 503:
             raise ServerError(status, url)
 
-    async def get_players_rankings(self,countryCode='global'):
+    async def get_players_rankings(self,countryCode='global',limit=None):
         """Get top players rankings"""
 
         url = self.api.RANKINGS.format(countryCode=countryCode) + "/players"
 
+        if limit:
+            url += "?limit={}".format(limit)
+        
         rankings, status = await self.request(url)
 
         if 300 > status >= 200:
@@ -194,7 +196,7 @@ class Client:
             return rankgs
 
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, rankings['message'])
         elif status == 404:
             raise NotFoundErr(status, "Not Found!")
         elif status == 429:
@@ -204,10 +206,13 @@ class Client:
         elif status == 503:
             raise ServerError(status, url)
 
-    async def get_brawlers_rankings(self,brawlerID,countryCode='global'):
+    async def get_brawlers_rankings(self,brawlerID,countryCode='global',limit=None):
         """Get top rankings based on brawlers"""
 
         url = self.api.RANKINGS.format(countryCode=countryCode) + "/brawlers/{}".format(brawlerID)
+        
+        if limit:
+            url += "?limit={}".format(limit)
 
         rankings, status = await self.request(url)
         
@@ -226,7 +231,7 @@ class Client:
             return rankgs
         
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, rankings['message'])
         elif status == 404:
             raise BrawlerNotFound(status, brawlerID)
         elif status == 429:
@@ -236,10 +241,13 @@ class Client:
         elif status == 503:
             raise ServerError(status, url)
 
-    async def get_club_rankings(self,countryCode='global'):
+    async def get_club_rankings(self,countryCode='global',limit=None):
         """Get top clubs rankings"""
 
         url = self.api.RANKINGS.format(countryCode=countryCode) + "/clubs"
+    
+        if limit:
+            url += "?limit={}".format(limit)
 
         rankings, status = await self.request(url)
 
@@ -252,7 +260,7 @@ class Client:
             return clubs
         
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, rankings['message'])
         elif status == 404:
             raise CountryNotFound(status, countryCode)
         elif status == 429:
@@ -280,7 +288,7 @@ class Client:
             return cc_members
         
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, club['message'])
         elif status == 404:
             raise TagNotFoundError(status)
         elif status == 429:
@@ -290,13 +298,13 @@ class Client:
         elif status == 503:
             raise ServerError(status, url)
     
-    async def get_brawler(self, brawlerID : int):
+    async def get_brawler_byID(self, brawlerID : int):
         """Get A brawler by id"""
         
         url = self.api.BRAWLER.format(id=brawlerID)
 
         b, status = await self.request(url)
-        
+
         if 300 > status >= 200:
             gadgets = []
             srs = []
@@ -309,13 +317,12 @@ class Client:
                 sr = StarPower(each['name'],each['id'])
                 srs.append(sr)
 
-            brawl = await self.get_brawler(brawlerID)
-
-            br = Brawler(brawl,b['name'],b['id'],srs,gadgets)
+            br = Brawler(b['name'],b['id'],srs,gadgets)
 
             return br
+
         elif status == 403:
-            raise Forbidden(status, url, url['message'])
+            raise Forbidden(status, url, b['message'])
         elif status == 404:
             raise BrawlerNotFound(status, id = brawlerID)
         elif status == 429:
@@ -324,3 +331,13 @@ class Client:
             raise UnexpectedError(status, url, b)
         elif status == 503:
             raise ServerError(status, url)
+
+    async def get_brawler_byName(client, name):
+        """Get a brawler by its name"""
+
+        brawlers = await client.brawlers()
+
+        for br in brawlers:
+
+            if br.name.lower() == name.lower():
+                return br
