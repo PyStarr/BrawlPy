@@ -9,7 +9,7 @@ from .utils import *
 import aiohttp
 import asyncio
 import json
-from .Objects import *
+from .objects import *
 
 class Client:
     def __init__(self,token):
