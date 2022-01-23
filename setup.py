@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
   name = 'brawlpy',
   packages = ['brawlpy'],
-  version = '0.1.3',
+  version = '1.2.0',
   license='MIT',
   description = 'A Basic wrapper for the Brawl Stars API',   
   author = 'PyStarr',
@@ -15,7 +15,7 @@ setup(
   url = 'https://github.com/PyStarr/BrawlPy',
   long_description=long_description,
   long_description_content_type="text/markdown",
-  download_url = 'https://github.com/PyStarr/BrawlPy/archive/v0.1.3.tar.gz',
+  download_url = 'https://github.com/PyStarr/BrawlPy/archive/v1.2.0.tar.gz',
   keywords = ['wrapper', 'brawlstars', 'api','brawlstarsApiWrapper'],   
   install_requires=[
           'aiohttp',

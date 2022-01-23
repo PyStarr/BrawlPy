@@ -11,7 +11,7 @@ A basic wrapper for the [Brawl Stars API](https://developer.brawlstars.com/#/).
 ## Installation
 To install the library run the following command:
 ```
-pip install brawlPy
+pip install brawlpy
 ```
 To install the development version run the following command:
 ```
