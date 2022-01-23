@@ -1,4 +1,4 @@
-# BrawlPy - Yet in development
+# BrawlPy
 A basic wrapper for the [Brawl Stars API](https://developer.brawlstars.com/#/).
 
 ## Features
