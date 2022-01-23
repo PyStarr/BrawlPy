@@ -24,7 +24,7 @@ A Simple Example to get the player by a tag
 import brawlpy
 import asyncio
 
-client = brawlpy.Client(token='your_token_here') # Enter your token here
+client = brawlpy.Client('your_api_key_here') # Enter your api key here
 
 async def main():
     player = await client.get_player("JP20RUR2")
@@ -41,7 +41,7 @@ Another simple Example to get the club by a tag
 import brawlpy
 import asyncio
 
-client = brawlpy.Client('your_token_here') # Enter your token here
+client = brawlpy.Client('your_api_key_here') # Enter your api key here
 
 async def brawlPy():
     club = await client.get_club("PVQ0RP90")
