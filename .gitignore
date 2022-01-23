@@ -1,7 +1,6 @@
 *.pyc
 */__pycache__/
 *test.py
-*setup.py
 *setup.cfg
 *MANIFEST
 *dist
