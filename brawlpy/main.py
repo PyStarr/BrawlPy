@@ -67,7 +67,7 @@ class Client:
                 br = PlayerBrawler(each['name'],each['id'],each['power'],each['rank'],each['trophies'],each['highestTrophies'],grs,gears,srs)
                 brrs.append(br)
 
-                battleLog = await self.get_battle_log(Tag)
+                battleLog = await self.get_battle_log(tag)
 
             Pl = Player(player['name'],player['tag'],player['nameColor'],player['icon']['id'],player['trophies'],player['expLevel'],player['expPoints'],cl,player['highestTrophies'],player['soloVictories'],player['duoVictories'],player['3vs3Victories'],player['bestRoboRumbleTime'],player['bestTimeAsBigBrawler'],brrs,battleLog)
 
