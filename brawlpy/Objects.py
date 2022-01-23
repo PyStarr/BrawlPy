@@ -1,4 +1,3 @@
-
 class Player:
 
     """
@@ -19,7 +18,7 @@ class Player:
     club - The club that the player is in
     """
 
-    def __init__(self,name,tag,nameColor,icon_id,trophies,expLevel,expPoints,club,highestTrophies,soloVictories,duoVictories,teamVictories,bestRoboRumbleTime,bestTimeAsBigBrawler,brawlers):
+    def __init__(self,name,tag,nameColor,icon_id,trophies,expLevel,expPoints,club,highestTrophies,soloVictories,duoVictories,teamVictories,bestRoboRumbleTime,bestTimeAsBigBrawler,brawlers,battleLog):
         self.name = name
         self.tag = tag
         self.nameColor = nameColor
@@ -35,6 +34,7 @@ class Player:
         self.bestRoboRumbleTime = bestRoboRumbleTime
         self.brawlers = brawlers
         self.club = club
+        self.battleLog = battleLog
 
     def __repr__(self):
         return "<Player name='{0.name}' tag='{0.tag}'>".format(self)

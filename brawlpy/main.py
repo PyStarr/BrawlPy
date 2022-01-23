@@ -29,8 +29,6 @@ class Client:
             data = await resp.json()
             
             return data, status
-            
-            
 
     async def get_player(self,tag):
         """Get a player by tag"""
@@ -71,12 +69,35 @@ class Client:
                 br = PlayerBrawler(each['name'],each['id'],each['power'],each['rank'],each['trophies'],each['highestTrophies'],grs,gears,srs)
                 brrs.append(br)
 
-            Pl = Player(player['name'],player['tag'],player['nameColor'],player['icon']['id'],player['trophies'],player['expLevel'],player['expPoints'],cl,player['highestTrophies'],player['soloVictories'],player['duoVictories'],player['3vs3Victories'],player['bestRoboRumbleTime'],player['bestTimeAsBigBrawler'],brrs)
+                battleLog = await self.get_battle_log(Tag)
+
+            Pl = Player(player['name'],player['tag'],player['nameColor'],player['icon']['id'],player['trophies'],player['expLevel'],player['expPoints'],cl,player['highestTrophies'],player['soloVictories'],player['duoVictories'],player['3vs3Victories'],player['bestRoboRumbleTime'],player['bestTimeAsBigBrawler'],brrs,battleLog)
 
             return Pl
 
         elif status == 403:
             raise Forbidden(status, url, player['message'])
+        elif status == 404:
+            raise TagNotFoundError(status)
+        elif status == 429:
+            raise RateLimitError(status, url)
+        elif status == 500:
+            raise UnexpectedError(status, url)
+        elif status == 503:
+            raise ServerError(status, url)
+
+    async def get_battle_log(self,tag):
+        """Get a Player's battle log by there tag"""
+
+        Tag = checkTag(tag)
+        
+        url = self.api.PLAYER.format(playerTag=Tag) + "/battlelog"
+
+        log, status = await self.request(url)
+        if 300 > status >= 200:
+            return log['items']
+        elif status == 403:
+            raise Forbidden(status, url, log['message'])
         elif status == 404:
             raise TagNotFoundError(status)
         elif status == 429:
