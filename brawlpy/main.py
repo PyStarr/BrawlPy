@@ -1,7 +1,5 @@
 from xml.dom import NotFoundErr
 
-from discord import NotFound
-from itsdangerous import exc
 from .API import API
 from .errors import *
 from .utils import *
