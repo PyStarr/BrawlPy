@@ -13,6 +13,8 @@ async def brawlPy():
     for brawler in player.brawlers:
     
         print(brawler)
+
+    print(player.battleLog) # A big fat list
     
     print(player.club) # returns None cuz I am not in a club :( , try changing the tag
 
