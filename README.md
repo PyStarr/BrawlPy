@@ -9,7 +9,11 @@ A basic wrapper for the [Brawl Stars API](https://developer.brawlstars.com/#/).
  * Get Information about a map, event, brawler!!!
 
 ## Installation
-Install the latest version
+To install the library run the following command:
+```
+pip install brawlPy
+```
+To install the development version run the following command:
 ```
 pip install git+https://github.com/PyStarr/BrawlPy
 ```
