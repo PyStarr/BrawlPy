@@ -1,6 +1,6 @@
 # BrawlPy
 <a href="https://pypi/projects/brawlpy">
-    <img alt="Downloads" src="https://img.shields.io/pypi/dw/brawlpy?color=blue">
+    <img alt="Downloads" src="https://img.shields.io/pypi/dw/https://img.shields.io/pypi/dw/brawlpy?color=bluebrawlpy?color=blue">
 </a>
 <a href="https://pypi.python.org/brawlpy">
     <img alt="PyPI" src="https://img.shields.io/pypi/v/brawlpy?color=blue">
