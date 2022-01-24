@@ -7,11 +7,17 @@ Version Info
 ------------
 
 .. data:: brawlpy.__version__
-   A string representation of the version.
+
+A string representation of the version.
 
 Clients
 -------
 
 .. class:: brawlpy.Client(*, token : str)
 
-   .. attributetable
+   .. attributetable ::
+
+      # Methods
+
+         * ``async`` get_player 
+         * ``async`` get_club
