@@ -9,6 +9,8 @@ author = 'PyStarr'
 release = '1.2.0'
 version = '1.2.0'
 
+master_doc = 'index'
+
 # -- General configuration
 
 extensions = [
