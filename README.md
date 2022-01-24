@@ -2,6 +2,7 @@
 <a href="https://pypi/projects/brawlpy">
     <img src="https://img.shields.io/pypi/dw/brawlpy?color=blue">
 </a>
+
 A basic wrapper for the [Brawl Stars API](https://developer.brawlstars.com/#/).
 
 ## Features
