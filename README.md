@@ -1,8 +1,8 @@
 # BrawlPy
-<a href="https://pypi/projects/brawlpy">
+<a href="https://pypi.org/project/brawlpy">
     <img alt="Downloads" src="https://img.shields.io/pypi/dw/brawlpy?color=blue">
 </a>
-<a href="https://pypi.python.org/brawlpy">
+<a href="https://pypi.org/project/brawlpy">
     <img alt="PyPI" src="https://img.shields.io/pypi/v/brawlpy?color=blue">
 </a>
 
