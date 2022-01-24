@@ -4,7 +4,7 @@ import asyncio
 client = brawlpy.Client('your_token_here') # Enter your token here
 
 async def brawlPy():
-    club = await client.get_club("JP20RUR2")
+    club = await client.get_club("PVQ0RP90")
     
     print(club)
 
