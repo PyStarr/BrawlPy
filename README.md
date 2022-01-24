@@ -26,7 +26,7 @@ pip install git+https://github.com/PyStarr/BrawlPy
 ```
 
 ## Example
-A Simple Example to get the player by a tag
+A Simple Example to get a player by their tag
 ```py
 import brawlpy
 import asyncio
@@ -43,7 +43,7 @@ async def main():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
-Another simple Example to get the club by a tag
+Another simple Example to get a club by its tag
 ```py
 import brawlpy
 import asyncio
