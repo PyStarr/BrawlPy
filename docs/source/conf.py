@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'BrawlPy'
+project = 'brawlpy'
 copyright = '2021, PyStarr'
 author = 'PyStarr'
 
