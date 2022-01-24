@@ -6,17 +6,31 @@ Usage
 Installation
 ------------
 
-You can install ``brawlpy`` using pip:
+You can install brawlpy using pip:
 
 .. code-block:: console
 
    pip install brawlpy
 
-Quick Example
+or
+
+.. code-block:: console
+
+   pip install git+https://github.com/PyStarr/BrawlPy
+
+for the development version
+
+Creating recipes
 ----------------
 
-To get a player by their tag:
-.. autofunction:: brawlpy.Client.get_player
+To retrieve a list of random ingredients,
+you can use the ``lumache.get_random_ingredients()`` function:
+
+.. autofunction:: lumache.get_random_ingredients
+
+The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
+or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
+will raise an exception.
 
 .. autoexception:: lumache.InvalidKindError
 
@@ -25,3 +39,4 @@ For example:
 >>> import lumache
 >>> lumache.get_random_ingredients()
 ['shells', 'gorgonzola', 'parsley']
+
