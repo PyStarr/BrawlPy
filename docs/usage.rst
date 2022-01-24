@@ -23,20 +23,30 @@ for the development version
 Quick Example
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+To start you have to first create a Client-Session with your API key :-
 
-.. autofunction:: lumache.get_random_ingredients
+.. code-block:: python
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+   import brawlpy
+   import asyncio
 
-.. autoexception:: lumache.InvalidKindError
+   client = brawlpy.Client("YOUR_API_KEY")
 
-For example:
+   async def main():
+      player = await client.get_player("TAG")
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+   loop = asyncio.get_event_loop()
+   loop.run_until_complete(main())
+
+A Simple Example to get a player by their tag
+
+.. code-block:: python
+
+   player = await client.get_player("JP20RUR2")
+
+Another simple Example to get a club by its tag
+
+.. code-block:: python
+
+   club = await client.get_club("PVQ0RP90")
 
