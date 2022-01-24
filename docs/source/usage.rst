@@ -6,11 +6,11 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+You can install ``brawlpy`` using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   pip install brawlpy
 
 Creating recipes
 ----------------
