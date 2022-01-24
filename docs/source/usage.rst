@@ -20,7 +20,7 @@ or
 
 for the development version
 
-Creating recipes
+Quick Example
 ----------------
 
 To retrieve a list of random ingredients,
