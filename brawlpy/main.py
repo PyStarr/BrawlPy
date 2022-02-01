@@ -174,9 +174,8 @@ class Client:
         events, status = await self.request(url)
 
         if 300 > status >= 200:
-            Ev = Event(events['id'],events['mode'],events['map'],events['startTime'],events['endTime'])
-
-            return Ev
+            
+            return events
         
         elif status == 403:
             raise Forbidden(status, url, events['message'])
