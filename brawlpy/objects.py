@@ -1,4 +1,8 @@
+import os
 import json
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class Player:
 
@@ -242,7 +246,7 @@ class Brawler:
 
     def get_icon_url(self):
 
-        with open("brawlpy/data/icons/brawlers.json") as icons:
+        with open(os.path.join(__location__, "data/icons/brawlers.json")) as icons:
             data = json.load(icons)
 
         return data[str(self.id)]
@@ -283,7 +287,7 @@ class PlayerBrawler:
 
     def get_icon_url(self):
 
-        with open("brawlpy/data/icons/brawlers.json") as icons:
+        with open(os.path.join(__location__, "data/icons/brawlers.json")) as icons:
             data = json.load(icons)
 
         return data[str(self.id)]
