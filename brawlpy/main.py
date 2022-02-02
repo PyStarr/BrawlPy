@@ -175,8 +175,15 @@ class Client:
 
         if 300 > status >= 200:
             
-            return events
-        
+            List = []
+
+            for each in events:
+                l = Event(each['event']['id'],each['event']['mode'],each['event']['map'],each['startTime'],each['endTime'])
+
+                List.append(l)
+
+            return List
+
         elif status == 403:
             raise Forbidden(status, url, events['message'])
         elif status == 404:
