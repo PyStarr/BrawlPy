@@ -46,6 +46,12 @@ class Client:
                 for each in cc['members']:
                     m = ClubMember(each['name'],each['icon']['id'],each['tag'],each['role'],each['nameColor'])
                     cc_members.append(m)
+
+                try:
+                    dsc = cc['description']
+                except KeyError:
+                    dsc = None
+
                 cl = Club(cc['tag'],cc['name'],cc['description'],cc['type'],cc['badgeId'],cc['requiredTrophies'],cc['trophies'],cc_members)
                 
             brs = player['brawlers']
