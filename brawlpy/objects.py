@@ -1,3 +1,5 @@
+import json
+
 class Player:
 
     """
@@ -228,6 +230,7 @@ class Brawler:
         self.name = name
         self.id = id
         self.starPowers = starPowers
+        self.icon_url = self.get_icon_url()
         self.gadgets = gadgets
     
     def __repr__(self):
@@ -235,6 +238,13 @@ class Brawler:
 
     def __str__(self):
         return "{0.name} ({0.id})".format(self)
+
+    def get_icon_url(self):
+
+        with open("brawlpy/data/icons/brawlers.json") as icons:
+            data = json.load(icons)
+
+        return data[str(self.id)]
 
 class PlayerBrawler:
 
