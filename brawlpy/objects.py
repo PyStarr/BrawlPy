@@ -266,7 +266,7 @@ class PlayerBrawler:
     def __init__(self,name,id,power,rank,trophies,highestTrophies,gadgets,gears,starPowers):
         self.name = name
         self.id = id
-        self.icon_id = self.get_icon_id()
+        self.icon_id = self.get_icon_url()
         self.power = power
         self.rank = rank
         self.trophies = trophies
