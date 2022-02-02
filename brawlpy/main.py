@@ -41,18 +41,8 @@ class Client:
             if len(c) < 1:
                 cl = None
             else:
-                cc = await self.get_club(c['tag'])
-                cc_members = []
-                for each in cc['members']:
-                    m = ClubMember(each['name'],each['icon']['id'],each['tag'],each['role'],each['nameColor'])
-                    cc_members.append(m)
-
-                try:
-                    dsc = cc['description']
-                except KeyError:
-                    dsc = None
-
-                cl = Club(cc['tag'],cc['name'],cc['description'],cc['type'],cc['badgeId'],cc['requiredTrophies'],cc['trophies'],cc_members)
+                
+                cl = await self.get_club(c['tag'])
                 
             brs = player['brawlers']
             brrs = []
@@ -123,7 +113,13 @@ class Client:
             for each in club['members']:
                 m = ClubMember(each['name'],each['icon']['id'],each['tag'],each['role'],each['nameColor'],each['trophies'])
                 cc_members.append(m)
-            cl = Club(club['tag'],club['name'],club['description'],club['type'],club['badgeId'],club['requiredTrophies'],club['trophies'],cc_members)
+
+            try:
+                dsc = club['description']
+            except KeyError:
+                dsc = None
+
+            cl = Club(club['tag'],club['name'],dsc,club['type'],club['badgeId'],club['requiredTrophies'],club['trophies'],cc_members)
 
             return cl
         
