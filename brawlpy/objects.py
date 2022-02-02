@@ -222,6 +222,7 @@ class Brawler:
 
     name - The name of the brawler
     id - The ID of the brawler
+    icon_url = The URL of the brawler's icon
     starPowers - A list of all the starPowers the brawler has
     gadgets - A list of all the gagdets the brawler has
     """
@@ -253,6 +254,7 @@ class PlayerBrawler:
 
     name - The name of the brawler
     id - The ID of the brawler
+    icon_id - The ID of the brawler's icon
     power - The power level of the brawler
     trophies - The amount of trophies the player has on the brawler
     highestTrophies - The highest amount of trophies the player ever had on the brawler
@@ -264,6 +266,7 @@ class PlayerBrawler:
     def __init__(self,name,id,power,rank,trophies,highestTrophies,gadgets,gears,starPowers):
         self.name = name
         self.id = id
+        self.icon_id = self.get_icon_id()
         self.power = power
         self.rank = rank
         self.trophies = trophies
@@ -277,6 +280,13 @@ class PlayerBrawler:
 
     def __str__(self):
         return "{0.name} ({0.id})".format(self)
+
+    def get_icon_url(self):
+
+        with open("brawlpy/data/icons/brawlers.json") as icons:
+            data = json.load(icons)
+
+        return data[str(self.id)]
 
 
 class Gadget:
