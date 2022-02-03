@@ -1,4 +1,4 @@
-{
+brawlers = {
     "16000000" : "https://drive.google.com/uc?export=view&id=1dAvFR908593LzntFYVsJXr_um4qiFRwz",
     "16000001" : "https://drive.google.com/uc?export=view&id=1xHmMCxksAd3KWuifEpGKMVzLugYhmFvD",
     "16000002" : "https://drive.google.com/uc?export=view&id=1SOMlveroyDJEXULdJ8_WkEKWtDp74kxa",
