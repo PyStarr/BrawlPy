@@ -246,7 +246,7 @@ class Brawler:
 
     def get_icon_url(self):
 
-        with open(os.path.join(__location__, "data/icons/brawlers.json")) as icons:
+        with open(os.path.join(__location__, "brawler_icons.json")) as icons:
             data = json.load(icons)
 
         return data[str(self.id)]
@@ -287,7 +287,7 @@ class PlayerBrawler:
 
     def get_icon_url(self):
 
-        with open(os.path.join(__location__, "data/icons/brawlers.json")) as icons:
+        with open(os.path.join(__location__, "brawler_icons.json")) as icons:
             data = json.load(icons)
 
         return data[str(self.id)]
