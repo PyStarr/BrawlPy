@@ -38,10 +38,9 @@ async def main():
     
     print(player)
 
-    print(player.name,player.tag, player.trophies)
+    print(player.name, player.tag, player.trophies)
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+asyncio.run(main())
 ```
 Another simple Example to get a club by its tag
 ```py
@@ -55,10 +54,9 @@ async def brawlPy():
     
     print(club)
 
-    print(club.name,club.tag, club.trophies)
+    print(club.name, club.tag, club.trophies)
     
     print(club.description)
     
-loop = asyncio.get_event_loop()
-loop.run_until_complete(brawlPy())
+asyncio.run(brawlPy())
 ```
