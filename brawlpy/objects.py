@@ -247,7 +247,7 @@ class Brawler:
 
     def get_icon_url(self):
         
-        return br_icons[str(self.id)]
+        return None
 
 class PlayerBrawler:
 
@@ -285,7 +285,7 @@ class PlayerBrawler:
 
     def get_icon_url(self):
 
-        return br_icons[str(self.id)]
+        return None
 
 
 class Gadget:
